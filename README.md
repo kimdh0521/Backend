@@ -50,6 +50,80 @@
 
 ---
 
+/* 회원가입
+ * @RestController
+public class SignupController {
+
+    @PostMapping("/signup")
+    public String signup(@RequestBody SignupRequest request) {
+        System.out.println(request.getEmail());
+        System.out.println(request.getPassword());
+        System.out.println(request.getNickname());
+        return "회원가입 완료!";
+    }
+}
+
+class SignupRequest {
+    private String email;
+    private String password;
+    private String nickname;
+
+    // Getter, Setter 필수
+}
+
+// SignupRequest.java
+public class SignupRequest {
+    private String email;
+    private String password;
+    private String nickname;
+
+    // 기본 생성자 필수 (JSON 역직렬화 시 필요)
+    public SignupRequest() {}
+
+    public String getEmail() { return email; }
+    public void setEmail(String email) { this.email = email; }
+
+    public String getPassword() { return password; }
+    public void setPassword(String password) { this.password = password; }
+
+    public String getNickname() { return nickname; }
+    public void setNickname(String nickname) { this.nickname = nickname; }
+}
+
+// SignupController.java
+import org.springframework.web.bind.annotation.*;
+
+@RestController
+@RequestMapping("/api")
+public class SignupController {
+
+    @PostMapping("/signup")
+    public String signup(@RequestBody SignupRequest request) {
+        // 1. 데이터 받기
+        String email = request.getEmail();
+        String password = request.getPassword();
+        String nickname = request.getNickname();
+
+        // 2. 검증 예시 (단순화된 버전)
+        if (email == null || password == null || nickname == null) {
+            return "입력값이 부족합니다.";
+        }
+
+        // 3. 비밀번호 암호화 (간단한 해시 예시)
+        String encryptedPassword = Integer.toHexString(password.hashCode());
+
+        // 4. DB 저장 (여기선 단순 출력만)
+        System.out.println("이메일: " + email);
+        System.out.println("암호화된 비밀번호: " + encryptedPassword);
+        System.out.println("닉네임: " + nickname);
+
+        // 5. 응답
+        return "회원가입 성공!";
+    }
+}
+
+ */
+
 ### ✅ Commit 템플릿
 
 ```text
