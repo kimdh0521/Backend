@@ -10,5 +10,5 @@ import java.time.LocalDate;
 
 
 public interface UserMissionRepository extends JpaRepository<UserMission,Long> {
-    Optional<UserMission> findByUserAndDate(UserForEntity userForEntity, LocalDate date);
+    Optional<UserMission> findByUserForEntityAndDate(UserForEntity userForEntity, LocalDate date);
 }

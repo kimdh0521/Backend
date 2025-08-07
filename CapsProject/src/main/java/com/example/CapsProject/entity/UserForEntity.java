@@ -25,8 +25,7 @@ public class UserForEntity {
     private String name;
 
     @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "affiliation_id")
-    @Column(nullable = false)
+    @JoinColumn(name = "affiliation_id",nullable = false)
     private Affiliation affiliation;
 
     private int score = 0;//랭킹을 위한 점수

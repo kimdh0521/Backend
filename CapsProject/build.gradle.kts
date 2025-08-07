@@ -38,6 +38,8 @@ dependencies {
 	testRuntimeOnly("org.junit.platform:junit-platform-launcher")
 	implementation("com.squareup.retrofit2:retrofit:2.9.0")
 	implementation("com.squareup.retrofit2:converter-gson:2.9.0")
+	implementation("com.h2database:h2")
+
 }
 
 tasks.withType<Test> {

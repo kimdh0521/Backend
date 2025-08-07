@@ -34,7 +34,7 @@ public class DailyMissionService {
 
         // 오늘 과제가 이미 있다면 리턴
         LocalDate today = LocalDate.now();
-        Optional<UserMission> existing = userMissionRepository.findByUserAndDate(user, today);
+        Optional<UserMission> existing = userMissionRepository.findByUserForEntityAndDate(user, today);
         if (existing.isPresent()) {
             return existing.get();
         }
@@ -53,7 +53,7 @@ public class DailyMissionService {
     public void completeMission(String email) {
         UserForEntity user = userRepository.findByEmail(email)
                 .orElseThrow(() -> new IllegalArgumentException("존재하지 않는 유저"));
-        UserMission mission = userMissionRepository.findByUserAndDate(user, LocalDate.now())
+        UserMission mission = userMissionRepository.findByUserForEntityAndDate(user, LocalDate.now())
                 .orElseThrow(() -> new IllegalArgumentException("오늘 미션이 없음"));
 
         if (!mission.isSuccess()) {

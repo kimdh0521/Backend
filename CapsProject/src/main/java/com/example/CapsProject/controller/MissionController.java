@@ -13,7 +13,7 @@ import com.example.CapsProject.service.DailyMissionService;
 import com.example.CapsProject.entity.UserMission;
 
 @RestController
-@RequestMapping
+@RequestMapping("/api")
 @RequiredArgsConstructor
 public class MissionController {
     private final DailyMissionService dailyMissionService;

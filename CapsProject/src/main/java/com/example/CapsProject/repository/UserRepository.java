@@ -2,6 +2,8 @@ package com.example.CapsProject.repository;
 
 import java.util.List;
 import java.util.Optional;
+
+import com.example.CapsProject.entity.Affiliation;
 import com.example.CapsProject.entity.UserForEntity;
 
 import org.springframework.data.jpa.repository.JpaRepository;
@@ -14,7 +16,7 @@ public interface UserRepository extends JpaRepository<UserForEntity, Long> {
 
     List<UserForEntity> findAllByOrderByScoreDesc();
 
-    List<UserForEntity> findByAffilliation(String affilliation);
+    List<UserForEntity> findByAffiliation(Affiliation affilliation);
 
     @Query("SELECT u.affiliation, AVG(u.score) FROM UserForEntity u GROUP BY u.affiliation ORDER BY AVG(u.score) DESC")
     List<Object[]> findAffiliationRanking();

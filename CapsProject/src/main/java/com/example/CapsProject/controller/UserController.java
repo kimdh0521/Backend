@@ -17,6 +17,7 @@ import com.example.CapsProject.service.*;
 import com.example.CapsProject.dto.AffiliationRankingDto;
 import com.example.CapsProject.dto.LoginRequestDto;
 import com.example.CapsProject.dto.SignupRequestDto;
+import com.example.CapsProject.dto.UserRankingDto;
 import com.example.CapsProject.entity.UserForEntity;
 
 @RestController
@@ -50,8 +51,8 @@ public class UserController {
 
     //랭킹 리스트 
     @GetMapping("/ranking")
-    public ResponseEntity<List<UserForEntity>> getAllRanking(){
-        List<UserForEntity> ranking = userService.getAllRanking();
+    public ResponseEntity<List<UserRankingDto>> getAllRanking() {
+        List<UserRankingDto> ranking = userService.getAllRankingDto();
         return ResponseEntity.ok(ranking);
     }
     
